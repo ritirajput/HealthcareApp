@@ -1,5 +1,6 @@
 package com.example.healtcareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
 
-        edusername = findViewById(R.id.email);
+        edusername = findViewById(R.id.username);
         edpassword = findViewById(R.id.password);
         btn = findViewById(R.id.loginbtn);
         txt = findViewById(R.id.register);
@@ -33,7 +34,19 @@ public class Login extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_SHORT).show();
+                String username = edusername.getText().toString();
+                String password = edpassword.getText().toString();
+                if (username.length() == 0 || password.length() == 0) {
+                    Toast.makeText(getApplicationContext(), "Complete the details or register yourself", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this,Register.class));
             }
         });
     }
