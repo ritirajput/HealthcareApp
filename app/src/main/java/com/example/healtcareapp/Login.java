@@ -17,8 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Login extends AppCompatActivity {
     EditText edusername, edpassword;
-    Button btn;
-    TextView txt;
+    Button btn1;
+    TextView txt1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,10 @@ public class Login extends AppCompatActivity {
 
         edusername = findViewById(R.id.username);
         edpassword = findViewById(R.id.password);
-        btn = findViewById(R.id.loginbtn);
-        txt = findViewById(R.id.register);
+        btn1 = findViewById(R.id.loginbtn);
+        txt1 = findViewById(R.id.register);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn1 .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = edusername.getText().toString();
@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
-        txt.setOnClickListener(new View.OnClickListener() {
+        txt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Login.this,Register.class));
